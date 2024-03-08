@@ -2,15 +2,15 @@ import React from 'react';
 
 import { StyleSheet, Pressable, View, Text, ScrollView} from 'react-native';
 
-function ToDoList({items}) {
+function ToDoList({tasks}) {
     
     return (
         
         <ScrollView>
-            {items.map((value, index) => (
-                <Pressable key={index}>
-                <View style={[styles.task]}>
-                  <Text style={styles.taskText}>{value}</Text>
+          {tasks.map((task, key) => (
+                <Pressable key = {key}>
+                  <View style={[styles.task]}>
+                    <Text style={styles.taskText}>{task}</Text>
                 </View>
               </Pressable>
             ))}

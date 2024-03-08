@@ -5,20 +5,28 @@
  */
 
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
 
 
 function App() {
-const [items, setItems] = React.useState(['Do laundry',
-'Go to gym',
-'Walk dog']);
+  const [tasks, setTasks] = React.useState([
+    'Do laundry',
+    'Go to gym',
+    'Walk dog'
+  ]);
+
+const handleAddTask = (task) => {
+  // Implement the logic to add a new task
+  //setTasks(tasks.concat(task));
+  setTasks([...tasks, task]);
+};
 
   return (
     <SafeAreaView>
-      <ToDoList items= {items} />
-      <ToDoForm/>
+      <ToDoList tasks={tasks}/>
+      <ToDoForm addTask={handleAddTask}/>
     </SafeAreaView>
   );
 }
