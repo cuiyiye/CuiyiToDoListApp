@@ -11,6 +11,7 @@ function ToDoForm({addTask}) {
 
   const handlePress = () => {
     addTask(task);
+    setTask('');
   };
 
     return (
