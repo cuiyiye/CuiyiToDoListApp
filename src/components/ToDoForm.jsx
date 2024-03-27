@@ -1,6 +1,7 @@
-
-import { View, TextInput, Button, StyleSheet} from 'react-native';
+import React from 'react';
+import { View, TextInput, Button, StyleSheet, Alert} from 'react-native';
 import { useEffect, useState } from 'react';
+
 
 function ToDoForm({addTask}) {
   const [task, setTask] = React.useState('');
@@ -10,7 +11,7 @@ function ToDoForm({addTask}) {
     // Asynchronously fetch tasks from the local JSON file
     const fetchTasks = async () => {
       try {
-        const response = await require('./data/tasks.json'); // Adjust path as necessary
+        const response = await require('../data/tasks.json'); // Adjust path as necessary
         setTasks(response.tasks);
       } catch (error) {
         Alert.alert('Error', 'Failed to fetch tasks');
